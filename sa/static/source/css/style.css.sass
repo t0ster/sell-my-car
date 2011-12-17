@@ -35,14 +35,32 @@
 body
   padding-top: 60px
 
-.attributes
-  tr
-    td:nth-child(2)
-      font-weight: bold
+.car_page
+  .attributes
+    tr
+      td:nth-child(2)
+        font-weight: bold
 
-.img
-  background-image: url("http://localhost:8000/media/2012-S-Class-S600-Sedan-MH1.jpg")
-  background-size: 405px 200px
-  background-repeat: no-repeat
-  background-position: center top
-  height: 200px
+  .img
+    background-image: url("http://localhost:8000/media/2012-S-Class-S600-Sedan-MH1.jpg")
+    background-size: 405px 200px
+    background-repeat: no-repeat
+    background-position: center top
+    height: 200px
+
+.index_page
+  .hero-unit
+    padding: 20px
+    cursor: pointer
+    &:hover
+      background: #EEE
+    a:hover
+      text-decoration: none
+  .img
+    background-image: url("http://localhost:8000/media/2012-S-Class-S600-Sedan-MH1.jpg")
+    background-size: 202px 100px
+    background-repeat: no-repeat
+    background-position: center top
+    height: 100px
+  // .attr_value
+  //  font-weight: bold

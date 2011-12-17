@@ -115,7 +115,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
+
+INTERNAL_IPS = ('127.0.0.1',)
 
 ROOT_URLCONF = 'sa.urls'
 
@@ -133,7 +136,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 
-    'djaml',
+    'debug_toolbar',
 
     'sa.apps.core',
 )
@@ -173,3 +176,7 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 FORMAT_MODULE_PATH = 'sa.formats'
 FIRST_DAY_OF_WEEK = 1  # Monday
+
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+}

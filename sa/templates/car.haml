@@ -1,0 +1,65 @@
+- extends "base.haml"
+{% block body_class %}car_page{% endblock %}
+
+- block content
+  / / Main hero unit for a primary marketing message or call to action
+  / .hero-unit
+  /   %h1 Hello, world!
+  /   %p Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+  /   %p
+  /     %a.btn.primary.large Learn more »
+  / Example row of columns
+  .row
+    .span16
+      %h2
+        = car.make
+        = car.model
+    .span10
+      %p.img
+        / %img{:src => "{{ MEDIA_URL }}2012-S-Class-S600-Sedan-MH1.jpg"}
+    .span6
+      %table.attributes.bordered-table.zebra-striped
+        %tr
+          %td Тип Кузова
+          %td= car.body_type
+        %tr
+          %td КПП
+          %td= car.transmission
+        %tr
+          %td Двигатель
+          %td
+            =car.engine
+            л.
+        %tr
+          %td Привод
+          %td= car.drive
+        %tr
+          %td Цена
+          %td
+            $
+            =car.price
+      %p
+        %form{ :method => "post", :action => "{% url delete_car car.pk %}" }
+          - csrf_token
+          %input.btn.danger{:type => "submit", :value => "Удалить »"}
+  %hr
+    / Example row of columns
+    .row
+      .span6
+        %h2 Heading
+        %p Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+        %p
+          %a.btn{:href => "#"} View details »
+      .span5
+        %h2 Heading
+        %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+        %p
+          %a.btn{:href => "#"} View details »
+      .span5
+        %h2 Heading
+        %p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+        %p
+          %a.btn{:href => "#"} View details »
+
+  %footer
+    %p © Saas Avto 2011
