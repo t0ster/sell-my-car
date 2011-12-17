@@ -1,7 +1,7 @@
 - extends "base.haml"
 - block title
-  Добавить авто
-{% block body_class %}add_car_page{% endblock %}
+  Запостить автомобиль
+{% block body_class %}post_car_page{% endblock %}
 - block content
   / Main hero unit for a primary marketing message or call to action
   / .hero-unit
@@ -17,7 +17,7 @@
       %fieldset
         %legend
           -block form_legend
-            Добавление автомобиля
+            Запостить автомобиль
         - for field in form.visible_fields
           .clearfix{ :class => "{% if field.errors %}error{% endif %}" }
             = field.label_tag
@@ -26,7 +26,7 @@
               %span.help-inline= field.errors.0
           / /clearfix
         .actions
-          %input.btn.primary{:type => "submit", :value => "Сохранить"} 
+          %input.btn.primary{:type => "submit", :value => "Запостить"} 
           %a.btn{:href => "{% url home %}"} Отмена
     - block extra_content
 

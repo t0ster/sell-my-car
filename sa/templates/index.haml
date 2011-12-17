@@ -1,4 +1,6 @@
 - extends "base.haml"
+- block title
+  SaaS Avto
 {% block body_class %}index_page{% endblock %}
 - block content
   / Main hero unit for a primary marketing message or call to action
@@ -9,11 +11,11 @@
   /     %a.btn.primary.large Learn more »
   -for car in car_list
     .hero-unit
-      %a{ :href => "{{ car.get_absolute_url }}" }
-        .row
-          .span4
-            .img
-          .span12
+      .row
+        .span4
+          .img
+        .span11
+          %a{ :href => "{{ car.get_update_url }}" }
             %h2
               = car.make
               = car.model
@@ -37,6 +39,11 @@
               Цена
             %span.attr_value
               $ {{ car.price }}
+        .span1
+          %p
+            %a.btn.primary{ :href => "{{ car.get_absolute_url }}" } Посмотреть
+          %p
+            %a.btn.success{ :href => "{{ car.get_post_url }}" } Запостить
 
   %footer
     %p © Saas Avto 2011

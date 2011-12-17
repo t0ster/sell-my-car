@@ -1,0 +1,12 @@
+- extends "add_car.haml"
+- block title
+  = form.make.value
+  = form.model.value
+- block form_legend
+  Редактирование автомобиля
+- block extra_content
+  %form{ :method => "post", :action => "{% url delete_car car.pk %}" }
+    - csrf_token
+      %label Удалить автомобиль
+      .input
+        %input.btn.danger{:type => "submit", :value => "Удалить"}
