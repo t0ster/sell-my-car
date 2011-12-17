@@ -38,7 +38,7 @@
     .topbar
       .topbar-inner
         .container-fluid
-          %a.brand{:href => "#"} Project name
+          %a.brand{:href => "#"} Saas Avto
           %ul.nav
             %li.active
               %a{:href => "#"} Home
@@ -92,26 +92,35 @@
         / Example row of columns
         .row
           .span16
-            %h2 Acura MDX 3.7 V6
+            %h2
+              = car.make
+              = car.model
           .span10
             %p.img
               / %img{:src => "{{ MEDIA_URL }}2012-S-Class-S600-Sedan-MH1.jpg"}
           .span6
             %table.attributes.bordered-table.zebra-striped
               %tr
+                %td Тип Кузова
+                %td= car.body_type
+              %tr
                 %td КПП
-                %td Автомат
+                %td= car.transmission
               %tr
                 %td Двигатель
-                %td 2.5 Л.
-              %tr
-                %td Топливо
-                %td Бензин
+                %td
+                  =car.engine
+                  л.
               %tr
                 %td Привод
-                %td Передний
+                %td= car.drive
+              %tr
+                %td Цена
+                %td
+                  $
+                  =car.price
             %p
-              %a.btn{:href => "#"} View details »
+              %a.btn{:href => "#"} Детально »
         %hr
           / Example row of columns
           .row
