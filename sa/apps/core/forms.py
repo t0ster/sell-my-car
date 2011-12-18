@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from django import forms
-# from django import forms.widgets
 
 from sa.apps.core.models import Car
 
@@ -26,3 +25,7 @@ class PostCarForm(forms.Form):
         ("avtobazar", u"Автобазар"),
     )
     sites = forms.MultipleChoiceField(widget=forms.widgets.CheckboxSelectMultiple, choices=SITES, label=u"Сайты")
+
+    def __init__(self, *args, **kwargs):
+        self.request = kwargs.pop("request", None)
+        super(PostCarForm, self).__init__(*args, **kwargs)

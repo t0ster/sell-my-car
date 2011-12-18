@@ -2,6 +2,7 @@
 from django.views.generic import DetailView, CreateView, DeleteView, UpdateView, FormView
 from django.core.urlresolvers import reverse
 from django.contrib import messages
+from django.shortcuts import redirect
 
 from sa.apps.core.models import Car
 from sa.apps.core.forms import CarForm, PostCarForm
@@ -50,3 +51,31 @@ class CarPostView(FormView):
 
     def get_success_url(self):
         return reverse("home")
+
+    def get(self, request, *args, **kwargs):
+        # If returning from twitter auth page
+        if request.GET.get("oauth_verifier"):
+            self.post_to_twitter()
+            return redirect("home")
+        return super(CarPostView, self).get(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        if not self.request.twitter_api:
+            return self.authorize_in_twitter()
+        self.post_to_twitter()
+        return super(CarUpdateView, self).form_valid(form)
+
+    def authorize_in_twitter(self):
+        self.request.twitter_auth.callback = self.request.build_absolute_uri()
+        url = self.request.twitter_auth.get_authorization_url()
+        return redirect(url)
+
+    def post_to_twitter(self):
+        pk = int(self.kwargs['pk'])
+        car = Car.objects.get(pk=pk)
+        status = (u"Продается %s, $%s %s" %
+                (car, car.price, self.request.build_absolute_uri(car.get_absolute_url())))
+        self.request.twitter_api.update_status(status=status, wrap_links=True)
+        messages.info(self.request,
+            u"Машина опубликована в <a target='_blank' href='http://twitter.com/%s'>twitter</a>" %
+                self.request.twitter_api.me().name)

@@ -63,7 +63,7 @@
           - for message in messages
             .alert-message.success
               %a.close{:href => "#"} ×
-              %p= message
+              %p= message|safe
         - block content
 
     -#
