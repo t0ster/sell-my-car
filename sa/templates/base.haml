@@ -52,12 +52,18 @@
             %a{:href => "#"} username
     .container-fluid
       .sidebar
-        .well
-          %ul.unstyled
-            %li
-              %a.btn.primary{ :href => '{% url add_car %}' }
-                Добавить авто »
+        - block sidebar
+          .well
+            %ul.unstyled
+              %li
+                %a.btn.primary{ :href => '{% url add_car %}' }
+                  Добавить авто »
       .content
+        - if messages
+          - for message in messages
+            .alert-message.success
+              %a.close{:href => "#"} ×
+              %p= message
         - block content
 
     -#

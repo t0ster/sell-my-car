@@ -1,6 +1,7 @@
 - extends "base.haml"
 - block title
   = car
+- block sidebar
 {% block body_class %}car_page{% endblock %}
 
 - block content
@@ -16,9 +17,10 @@
       %h2
         = car.make
         = car.model
-    .span10
-      %p.img
-        / %img{:src => "{{ MEDIA_URL }}2012-S-Class-S600-Sedan-MH1.jpg"}
+    .span6
+      .media-grid
+        %a{:href => "#"}
+          %img{:src => "{{ MEDIA_URL }}Brabus S V12 BUSINNES B.jpg", :width => "330px", :height => "219.14px"}
     .span6
       %table.attributes.bordered-table.zebra-striped
         %tr
@@ -47,7 +49,7 @@
   %hr
     / Example row of columns
     .row
-      .span16
+      .span12
         %h2 Описание
         %p= car.description
 

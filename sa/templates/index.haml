@@ -43,9 +43,9 @@
               $ {{ car.price }}
         .span1.buttons
           %p
-            %a.btn.primary{ :href => "{{ car.get_absolute_url }}" } Посмотреть
+            %a.btn.success{ :href => "{{ car.get_post_url }}" } Запостить&nbsp&nbsp
           %p
-            %a.btn.success{ :href => "{{ car.get_post_url }}" } Запостить
+            %a.btn.primary{ :href => "{{ car.get_absolute_url }}" } Посмотреть
 
   %footer
     %p © Saas Avto 2011
