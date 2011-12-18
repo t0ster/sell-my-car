@@ -1,8 +1,8 @@
 http://nodeload.github.com/django/django/tarball/master#egg=django
+http://nodeload.github.com/chartjes/djaml/tarball/master#egg=djaml
 psycopg2
 django-nose
 http://nodeload.github.com/django-debug-toolbar/django-debug-toolbar/tarball/master#egg=django-debug-toolbar
 http://nodeload.github.com/jessemiller/HamlPy/tarball/master#egg=HamlPy
-http://nodeload.github.com/chartjes/djaml/tarball/master#egg=djaml
 mechanize
 gunicorn
