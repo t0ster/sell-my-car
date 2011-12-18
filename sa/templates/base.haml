@@ -53,9 +53,10 @@
     .container-fluid
       .sidebar
         .well
-          %ul
+          %ul.unstyled
             %li
-              %a{ :href => '{% url add_car %}' } Добавить авто
+              %a.btn.primary{ :href => '{% url add_car %}' }
+                Добавить авто »
       .content
         - block content
 

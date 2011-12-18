@@ -13,10 +13,12 @@
     .hero-unit
       .row
         .span4
-          .img
-        .span11
+          .media-grid
+            %a{:href => "{{ car.get_update_url }}"}
+              %img{:src => "{{ MEDIA_URL }}Brabus S V12 BUSINNES B.jpg", :width => "210px", :height => "139.45px"}
+        .span11.car_info
           %a{ :href => "{{ car.get_update_url }}" }
-            %h2
+            %h3
               = car.make
               = car.model
             %span.attr_key
@@ -39,7 +41,7 @@
               Цена
             %span.attr_value
               $ {{ car.price }}
-        .span1
+        .span1.buttons
           %p
             %a.btn.primary{ :href => "{{ car.get_absolute_url }}" } Посмотреть
           %p
