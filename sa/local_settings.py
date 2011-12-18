@@ -1,1 +1,1 @@
-STATIC_URL = '/static/'
+# STATIC_URL = 'http://localhost:4567/'
