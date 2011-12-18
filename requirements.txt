@@ -1,5 +1,5 @@
 http://nodeload.github.com/django/django/tarball/master#egg=django
-http://nodeload.github.com/chartjes/djaml/tarball/master#egg=djaml
+http://nodeload.github.com/chartjes/djaml/tarball/5e4cdfa0d2cfc146ce8bb056cffc5dfa4267ffe4#egg=djaml
 psycopg2
 django-nose
 http://nodeload.github.com/django-debug-toolbar/django-debug-toolbar/tarball/master#egg=django-debug-toolbar
