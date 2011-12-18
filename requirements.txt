@@ -6,3 +6,4 @@ http://nodeload.github.com/django-debug-toolbar/django-debug-toolbar/tarball/mas
 http://nodeload.github.com/jessemiller/HamlPy/tarball/master#egg=HamlPy
 mechanize
 gunicorn
+tweepy
