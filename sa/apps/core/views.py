@@ -73,7 +73,7 @@ class CarPostView(FormView):
     def post_to_twitter(self):
         pk = int(self.kwargs['pk'])
         car = Car.objects.get(pk=pk)
-        status = (u"Продается %s, $%s %s" %
+        status = (u"Продается %s, $%s %s #sellmycar" %
                 (car, car.price, self.request.build_absolute_uri(car.get_absolute_url())))
         self.request.twitter_api.update_status(status=status, wrap_links=True)
         messages.info(self.request,
