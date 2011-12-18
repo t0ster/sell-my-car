@@ -9,11 +9,9 @@ develop-eggs
 dist
 *.egg-info
 parts
-build
 downloads
 eggs
 var
-_generated_media*
-settings_local.py
 sa/all_static
+settings_local.py
 local_settings.py
