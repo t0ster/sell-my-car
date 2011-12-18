@@ -1,6 +1,7 @@
 *.pyc
 *.pyo
 *.db
+.sass-cache
 
 .installed.cfg
 bin
