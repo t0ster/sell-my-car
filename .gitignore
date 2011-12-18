@@ -16,3 +16,4 @@ var
 _generated_media*
 settings_local.py
 sa/all_static
+local_settings.py
