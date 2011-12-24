@@ -41,9 +41,9 @@ LANGUAGE_CODE = 'ru'
 
 gettext = lambda s: s
 
-# LANGUAGES = (
-#     ('ru', gettext('Russian')),
-# )
+LANGUAGES = (
+    ('ru', gettext('Russian')),
+)
 
 SITE_ID = 1
 
@@ -137,6 +137,9 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     'gunicorn',
+    'chargify',
+    'bootstrapform',
+    'debug_template',
     'debug_toolbar',
 
     'sa.apps.core',
@@ -181,6 +184,15 @@ FIRST_DAY_OF_WEEK = 1  # Monday
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
 }
+
+CHARGIFY_SUBDOMAIN = "sellmycar"
+CHARGIFY_API_KEY = "Rh7STrmEH2lJwGsjrllM"
+
+CHARGIFY_CC_TYPES = (
+         ('Visa', 'Visa'),
+         ('MasterCard', 'MasterCard'),
+         )
+
 
 try:
     from local_settings import *

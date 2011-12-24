@@ -6,9 +6,6 @@ TWITTER_CONSUMER_SECRET = "afRnHmGrDAAImRoobcqodzgr2Eq6uC9uGEQKbKPWKNE"
 
 class TwitterApiMiddleware(object):
     def process_request(self, request):
-        # request.twitter_api = request.session.get("twitter_api")
-        # request.twitter_auth = request.session.get("twitter_auth")
-
         request.twitter_auth = tweepy.OAuthHandler(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET)
         if 'request_token' in request.session:
             request_token = request.session.pop('request_token')

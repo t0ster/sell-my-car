@@ -21,10 +21,16 @@ class CarForm(forms.ModelForm):
 
 class PostCarForm(forms.Form):
     SITES = (
-        ("avtoria", u"AvtoRia"),
-        ("avtobazar", u"Автобазар"),
+        ("twitter", u"Twitter"),
+        ("avtoria", u"AvtoRia (в разработке)"),
+        ("avtobazar", u"Автобазар (в разработке)"),
     )
-    sites = forms.MultipleChoiceField(widget=forms.widgets.CheckboxSelectMultiple, choices=SITES, label=u"Сайты")
+    sites = forms.MultipleChoiceField(
+        widget=forms.CheckboxSelectMultiple(attrs={'disabled': ('avtoria', 'avtobazar')}),
+        choices=SITES,
+        label=u"Сайты",
+        initial=["twitter"]
+    )
 
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop("request", None)

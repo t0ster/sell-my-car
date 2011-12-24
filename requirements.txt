@@ -7,3 +7,6 @@ http://nodeload.github.com/jessemiller/HamlPy/tarball/master#egg=HamlPy
 mechanize
 gunicorn
 tweepy
+http://nodeload.github.com/gdoermann/django-chargify/tarball/master#egg=django-chargify
+django-debug-template
+http://nodeload.github.com/t0ster/django-bootstrap-form/tarball/master#egg=django-bootstrap-form
